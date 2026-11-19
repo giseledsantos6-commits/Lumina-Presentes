@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lumina Presentes | Cosméticos e Perfumaria</title>
+  <!-- Importa o CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <a href="#inicio" class="logo">✨ Lumina <span>Presentes</span></a>
+    <nav>
+      <button id="menuBtn" class="menu-btn" aria-label="Abrir menu">☰</button>
+      <ul id="menu" class="menu">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#presente">Presente ideal</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <button id="cartBtn" class="btn btn-small">🛍️ Carrinho (<span id="cartCount">0</span>)</button>
+  </header>
+
+  <main>
+    <!-- PÁGINA PRINCIPAL -->
+    <section id="inicio" class="hero">
+      <div class="hero-text">
+        <h1>Beleza, perfume e carinho em cada presente</h1>
+        <p>Cosméticos e perfumaria para adultos e crianças. Encontre o presente perfeito na Lumina.</p>
+        <a href="#produtos" class="btn">Ver produtos</a>
+        <button id="cupomBtn" class="btn btn-outline">Ganhe 10% OFF</button>
+      </div>
+      <div class="hero-art">🌸💄🧴</div>
+    </section>
+
+    <!-- SEÇÃO 1: PRODUTOS -->
+    <section id="produtos" class="section">
+      <h2>Nossos produtos</h2>
+      <div class="filters" id="filters">
+        <button class="filter active" data-cat="todos">Todos</button>
+        <button class="filter" data-cat="Perfumes">Perfumes</button>
+        <button class="filter" data-cat="Maquiagem">Maquiagem</button>
+        <button class="filter" data-cat="Cuidados">Cuidados</button>
+        <button class="filter" data-cat="Infantil">Infantil</button>
+      </div>
+      <div id="productGrid" class="grid"></div>
+    </section>
+
+    <!-- SEÇÃO 2: SIMULADOR -->
+    <section id="presente" class="section alt">
+      <h2>Encontre o presente ideal</h2>
+      <p class="center">Diga para quem é o presente e quanto quer gastar.</p>
+      <div class="sim">
+        <label>Para quem?
+          <select id="simPublico">
+            <option value="Adulto">Adulto</option>
+            <option value="Infantil">Criança</option>
+          </select>
+        </label>
+        <label>Orçamento (R$)
+          <input type="number" id="simOrcamento" min="1" value="100">
+        </label>
+        <button id="simBtn" class="btn">Sugerir presentes</button>
+      </div>
+      <div id="simResultado" class="grid"></div>
+    </section>
+
+    <!-- SEÇÃO 3: DIFERENCIAIS -->
+    <section id="diferenciais" class="section">
+      <h2>Por que escolher a Lumina?</h2>
+      <div class="grid cards3">
+        <article class="info"><span>🚚</span><h3>Entrega rápida</h3><p>Receba seus presentes com segurança e carinho.</p></article>
+        <article class="info"><span>🌿</span><h3>Produtos seguros</h3><p>Fórmulas suaves, ideais também para a pele infantil.</p></article>
+        <article class="info"><span>🎁</span><h3>Embalagem de presente</h3><p>Deixe seu presente ainda mais especial.</p></article>
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4: CONTATO -->
+    <section id="contato" class="section alt">
+      <h2>Fale com a gente</h2>
+      <form id="contatoForm" class="form" novalidate>
+        <label>Nome <input type="text" id="nome" placeholder="Seu nome"></label>
+        <small class="erro" id="erroNome"></small>
+        <label>E-mail <input type="email" id="email" placeholder="voce@email.com"></label>
+        <small class="erro" id="erroEmail"></small>
+        <label>Mensagem <textarea id="mensagem" rows="4" placeholder="Como podemos ajudar?"></textarea></label>
+        <small class="erro" id="erroMsg"></small>
+        <button type="submit" class="btn">Enviar mensagem</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- CARRINHO LATERAL -->
+  <aside id="cart" class="cart">
+    <div class="cart-head">
+      <h3>Seu carrinho</h3>
+      <button id="closeCart" class="close" aria-label="Fechar">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-foot">
+      <div class="coupon">
+        <input type="text" id="cupomInput" placeholder="Cupom">
+        <button id="applyCupom" class="btn btn-small">Aplicar</button>
+      </div>
+      <p>Subtotal: <strong id="subtotal">R$ 0,00</strong></p>
+      <p>Desconto: <strong id="desconto">R$ 0,00</strong></p>
+      <p class="total">Total: <strong id="total">R$ 0,00</strong></p>
+      <button id="checkoutBtn" class="btn full">Finalizar compra</button>
+      <button id="clearBtn" class="btn btn-outline full">Esvaziar carrinho</button>
+    </div>
+  </aside>
+  <div id="overlay" class="overlay"></div>
+
+  <!-- AVISO (TOAST) -->
+  <div id="toast" class="toast"></div>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <p><strong>Lumina Presentes</strong> · Cosméticos e Perfumaria</p>
+    <p>📍 Rua das Flores, 123, São Paulo · 📞 (11) 4000-0000 · ✉️ contato@lumina.com</p>
+    <p>© 2026 Lumina Presentes. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Importa o JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
